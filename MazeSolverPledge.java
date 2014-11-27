@@ -1,6 +1,4 @@
-package solver.maze.main;
-import solver.maze.behavior.Active;
-import solver.maze.behavior.Passive;
+
 import lejos.robotics.subsumption.Arbitrator;
 import lejos.robotics.subsumption.Behavior;
 
@@ -18,3 +16,4 @@ public class MazeSolverPledge {
 	}
 
 }
+ 

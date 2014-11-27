@@ -1,5 +1,4 @@
-package solver.maze.behavior;
-import solver.maze.main.Config;
+
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UltrasonicSensor;
@@ -25,8 +24,14 @@ public class Passive implements Behavior {
 			Thread.yield();
 		}
 		
+		pilot.stop();
 		// belok kiri pertama masih kurang.
-		pilot.rotate(-120);
+		pilot.rotate(-90);
+		try {
+			Thread.sleep(1000);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		Config.COUNTER = -1;
 	}
 

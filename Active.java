@@ -1,5 +1,4 @@
-package solver.maze.behavior;
-import solver.maze.main.Config;
+
 import lejos.nxt.Motor;
 import lejos.nxt.SensorPort;
 import lejos.nxt.UltrasonicSensor;
@@ -24,28 +23,48 @@ public class Active implements Behavior{
 			
 			System.out.println("counter: " + Config.COUNTER);
 			
-			Motor.C.rotate(90);
+			Motor.C.rotate(-90);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			if(uSSensor.getDistance() > Config.BLOCK){
-				System.out.println("BAMPUKI");
-				Motor.C.rotate(-90);
+				System.out.println("KANAN");
+				Motor.C.rotate(90);
 				Config.COUNTER += 1;
-				pilot.rotate(120);
+				pilot.rotate(90);
+				try {
+					Thread.sleep(500);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
 				pilot.travel(10);
 				pilot.stop();
 				continue;
 			}
 			
-			Motor.C.rotate(-90);
+			Motor.C.rotate(90);
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 			if(uSSensor.getDistance() > Config.BLOCK){
-				System.out.println("KACE");
+				System.out.println("LURUS");
 				pilot.travel(10);
 				pilot.stop();
 				continue;
 			}
 			Config.COUNTER -= 1;
 			
-			System.out.println("CUKIMAI");
-			pilot.rotate(-120);
+			System.out.println("KIRI");
+			pilot.rotate(-90);
+			try {
+				Thread.sleep(500);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
 		}
 		
 		pilot.stop();
