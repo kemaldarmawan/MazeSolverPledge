@@ -20,7 +20,7 @@ public class Passive implements Behavior {
 		suppressed = false;
 		pilot.forward();
 
-		while (uSSensor.getDistance() > Config.BLOCK && !suppressed) {
+		while (uSSensor.getDistance() > Config.BLOCK-10 && !suppressed) {
 			Thread.yield();
 		}
 		

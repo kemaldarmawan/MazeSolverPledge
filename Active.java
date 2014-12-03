@@ -39,6 +39,7 @@ public class Active implements Behavior{
 				} catch (InterruptedException e) {
 					e.printStackTrace();
 				}
+				pilot.stop();
 				pilot.travel(10);
 				pilot.stop();
 				continue;
@@ -59,7 +60,9 @@ public class Active implements Behavior{
 			Config.COUNTER -= 1;
 			
 			System.out.println("KIRI");
+			pilot.stop();
 			pilot.rotate(-90);
+			pilot.stop();
 			try {
 				Thread.sleep(500);
 			} catch (InterruptedException e) {
@@ -77,7 +80,7 @@ public class Active implements Behavior{
 
 	@Override
 	public boolean takeControl() {
-		return Config.COUNTER != 0;
+		return Config.COUNTER < 0;
 	}
 	
 }

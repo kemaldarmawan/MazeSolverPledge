@@ -8,6 +8,6 @@ public class Config {
 	
 	public static final int BLOCK = 35;
 	public static final int TURNRATE = 100;
-	public static final int DISTANCE = 10;
+	public static final int DISTANCE = 4;
 	
 }
